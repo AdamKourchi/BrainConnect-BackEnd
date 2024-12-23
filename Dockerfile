@@ -14,4 +14,4 @@ COPY . /app
 RUN mvn clean package -DskipTests
 
 # Specify the command to run the .jar file
-CMD ["java", "-jar", "target/BrainConnect-001-snapshot.jar"]
+CMD ["java", "-jar", "target/BrainConnect-0.0.1-SNAPSHOT.jar"]
