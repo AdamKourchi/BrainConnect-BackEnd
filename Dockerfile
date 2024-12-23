@@ -1,11 +1,14 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:21-jre-slim  # You can change this to the version you're using
+# Use an official Java runtime as a parent image
+FROM openjdk:21-jdk
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the JAR file from your local machine to the container
-COPY target/BrainConnect-001-snapshot.jar /app/app.jar
+# Copy the source code to the container (this includes the pom.xml, src, etc.)
+COPY . /app
 
-# Run the JAR file
-CMD ["java", "-jar", "app.jar"]
+# Build the project using Maven (this will generate the .jar file in the target folder)
+RUN mvn clean package -DskipTests
+
+# Specify the command to run the .jar file
+CMD ["java", "-jar", "target/BrainConnect-001-snapshot-.jar"]
