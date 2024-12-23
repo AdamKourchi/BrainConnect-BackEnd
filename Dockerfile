@@ -1,10 +1,10 @@
-# Use an official Java runtime as a parent image
-FROM openjdk:21-jdk
+# Use an official Java runtime as a parent image (Ubuntu-based)
+FROM openjdk:21-jdk-bullseye
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install Maven (since it's not included in openjdk images)
+# Install Maven (now it will work since we're using an Ubuntu-based image)
 RUN apt-get update && apt-get install -y maven
 
 # Copy the source code to the container (this includes the pom.xml, src, etc.)
