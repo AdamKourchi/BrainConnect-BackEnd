@@ -4,6 +4,9 @@ FROM openjdk:21-jdk
 # Set the working directory inside the container
 WORKDIR /app
 
+# Install Maven (since it's not included in openjdk images)
+RUN apt-get update && apt-get install -y maven
+
 # Copy the source code to the container (this includes the pom.xml, src, etc.)
 COPY . /app
 
