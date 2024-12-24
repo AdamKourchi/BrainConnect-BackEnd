@@ -12,7 +12,7 @@ public class WebConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:4200") // React app's origin
+                registry.addMapping("/**").allowedOrigins("https://eclectic-tulumba-3b6203.netlify.app") // Angular app's origin
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS").allowedHeaders("*");
             }
         };
